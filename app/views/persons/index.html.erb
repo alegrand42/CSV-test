@@ -1,0 +1,36 @@
+<%= flash[:notice] %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Reference</th>
+      <th>Lastname</th>
+      <th>Firstname</th>
+      <th>Mobile Phone</th>
+      <th>Home Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @persons.order("email desc").each do |person| %>
+      <tr>
+      <td><%= person.email %></td>
+      <td><%= person.address %></td>
+      <td><%= person.reference %></td>
+      <td><%= person.lastname %></td>
+      <td><%= person.firstname %></td>
+      <td><%= person.mobile_phone_number %></td>
+      <td><%= person.home_phone_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <h4> Import File </h4>
+  <%= form_tag import_persons_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV"%>
+  <% end %>
+</div>
