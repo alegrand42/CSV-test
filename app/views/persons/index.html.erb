@@ -1,3 +1,5 @@
+<h4>Person</h4>
+
 <%= flash[:notice] %>
 
 <table>
@@ -32,5 +34,13 @@
   <%= form_tag import_persons_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import CSV"%>
+  <% end %>
+</div>
+
+<div>
+  <h4> Update File </h4>
+  <%= form_tag update_import_persons_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Update CSV"%>
   <% end %>
 </div>

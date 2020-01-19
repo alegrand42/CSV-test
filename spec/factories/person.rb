@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :person do
+    reference { "1" }
     firstname { Faker::Name.first_name }
     lastname { Faker::Name.last_name }
     email { Faker::Internet.email }

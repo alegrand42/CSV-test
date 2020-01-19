@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :building do
-    building { Faker::Company.name }
+    reference { "1" }
     manager_name { Faker::Name.last_name }
     country { Faker::Nation.nationality }
     city { Faker::Address.city }

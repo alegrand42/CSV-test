@@ -2,7 +2,7 @@ class CreateBuildings < ActiveRecord::Migration[5.2]
   def change
     create_table :buildings do |t|
       t.string :building
-      t.string :reference
+      t.string :reference, null: false, index: { unique: true }
       t.string :address
       t.string :zip_code
       t.string :city

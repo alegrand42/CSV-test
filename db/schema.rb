@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_170431) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "building"
-    t.string "reference"
+    t.string "reference", null: false
     t.string "address"
     t.string "zip_code"
     t.string "city"
@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 2020_01_17_170431) do
     t.string "manager_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reference"], name: "index_buildings_on_reference", unique: true
   end
 
   create_table "people", force: :cascade do |t|
-    t.string "reference"
+    t.string "reference", null: false
     t.string "email"
     t.string "home_phone_number"
     t.string "mobile_phone_number"
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_170431) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reference"], name: "index_people_on_reference", unique: true
   end
 
 end

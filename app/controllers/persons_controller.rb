@@ -8,4 +8,9 @@ class PersonsController < ApplicationController
     Person.import(params[:file])
     redirect_to root_url, notice: "Data Imported"
   end
+
+  def update_import
+    Person.update_import(params[:file])
+    redirect_to root_url, notice: "Data updated"
+  end
 end
